@@ -28,6 +28,11 @@ function computeSum(n) {
 
 console.log(computeSum(5));
 
+// What is recursion ?
+
+// Recursion is a programming technique in which the solution to one big problem is dependent on the solutions of each of the sub problems inside of it. Recursion is usually expressed as a function that calls itself over and over until it reaches some stopping condition.
+// Every recursive function has two parts: The base case(stopping condition) and the recursive call to that same function, usually with different arguments than what was passed in the first time.
+
 // Solution 1: Solving Recursively
 // function countDown(n) {
 //   if (n <= 0) {
@@ -115,3 +120,55 @@ function getOdds(arr) {
 }
 
 console.log(getOdds([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+
+// Find the nth fibonaci number in the array sequence
+
+function fib(n) {
+  if (n < 1) return null;
+  return fib(n - 1) + fib(n - 2);
+}
+
+console.log(fib(3));
+
+console.log("-----------count down solution 1-------------");
+
+function countDownWhileLoop(x) {
+  while (x > 0) {
+    console.log(x);
+    x--;
+  }
+  console.log("All Done!");
+}
+
+countDownWhileLoop(5);
+
+function countDownForLoop(y) {
+  for (let i = y; i > 0; i--) {
+    console.log(i);
+  }
+  console.log("All done!");
+}
+
+countDownForLoop(10);
+
+function countDownRecursive(z) {
+  if (z <= 0) {
+    console.log("All done!");
+    return;
+  }
+  console.log(z);
+  countDownRecursive(z - 1);
+}
+
+countDownRecursive(7);
+
+console.log("------------- SumRange Solution -------------");
+//
+function sumRange(n, total = 0) {
+  if (n <= 0) {
+    return total;
+  }
+  return sumRange(n - 1, total + n);
+}
+
+console.log(sumRange(3));
