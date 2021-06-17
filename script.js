@@ -172,3 +172,75 @@ function sumRange(n, total = 0) {
 }
 
 console.log(sumRange(3));
+
+console.log("------------ HELPER METHOD RECURSION --------");
+
+function findOddNums(arr) {
+  let oddNums = [];
+  function helper(helperInput) {
+    if (helperInput.length === 0) {
+      return;
+    }
+    if (helperInput[0] % 2 !== 0) {
+      oddNums.push(helperInput[0]);
+    }
+    // Recursive occurs here
+    helper(helperInput.slice(1));
+  }
+  helper(arr);
+  return oddNums;
+}
+
+console.log(findOddNums([6, 5, 4, 3, 2, 1]));
+
+console.log("---------------- POWER TO BASE -------------------");
+
+function power(base, exponent) {
+  if (exponent === 0) return 1;
+  return base * power(base, exponent - 1);
+  //  2 * power(2, 1)
+  // 2 * power(2, 0)
+}
+
+console.log(power(2, 0));
+console.log(power(2, 2));
+console.log(power(2, 4));
+
+console.log("-------------- product of array ----------");
+
+function productOfArray(arr, arrayLength = arr.length) {
+  if (arrayLength <= 0) {
+    return 1;
+  }
+  return productOfArray(arr, arrayLength - 1) * arr[arrayLength - 1];
+  // 6 * arr[4]; = 6 * 4 == 24
+  //  2 * arr[2]; == 2 * 3 = 6
+  //  1 * arr[1];  == 1 * 2 = 2
+  //  1 * arr[0]; == 1 * 1 = 1
+}
+console.log(productOfArray([1, 2, 3, 4]));
+
+console.log("----------------- Recursive Range --------------");
+
+// SAMPLE INPUT/OUTPUT
+// recursiveRange(6) // 21
+// recursiveRange(10) // 55
+
+function recursiveRange(num) {
+  if (num <= 0) return 0;
+  return num + recursiveRange(num - 1);
+  // 3 + recursiveRange(2) == 3 + 3 === 6
+  // 2 + recursiveRange(1) == 2 + 1 === 3
+  // 1 + recursiveRange(0) == 1 + 0 === 1
+}
+
+console.log(recursiveRange(3));
+
+console.log("--------------- Fib ------------------");
+// 1,1,2,3,5,8,13,21, etc
+function fibo(num) {
+  if (num < 2) return num;
+  return fibo(num - 1) + fibo(num - 2);
+}
+
+console.log(fibo(4));
