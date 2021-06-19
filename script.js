@@ -244,3 +244,79 @@ function fibo(num) {
 }
 
 console.log(fibo(4));
+
+console.log("------------ Compare the triplets - HackerRank ------------");
+
+//  Alice - a = (a[0],a[1], a[2])
+//  Bob - b = (b[0],b[1],b[2])
+// The task is to find their comparison points by comparing
+// a[0] with b[0], a[1] with b[1], and a[2] with b[2].
+
+//  Conditions:
+// If a[i] > b[i], Alice is awarded 1 point
+// If a[i] < b[i], then Bob is awarded 1 point
+// If a[i] = b[i], then neither person receives a point.
+
+// returns an array: [Alice's score, Bob's Score]
+
+function compareTriplets(a, b) {
+  let alice = 0;
+  let bob = 0;
+
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] > b[i]) {
+      alice++;
+    } else if (a[i] < b[i]) {
+      bob++;
+    }
+  }
+  return [alice, bob];
+}
+console.log(compareTriplets([5, 6, 7], [3, 6, 10]));
+
+function aVeryBigSum(ar, len = ar.length) {
+  if (len === 0) return 0;
+
+  return aVeryBigSum(ar, len - 1) + ar[len - 1];
+}
+
+console.log(
+  aVeryBigSum([1000000001, 1000000002, 1000000003, 1000000004, 1000000005])
+);
+
+console.log("-------------- Diagonal Diff ----------- ");
+
+function diagonalDifference(arr) {
+  let len = arr.length;
+  let firstDiagonalSum = 0;
+  let secondDiagonalSum = 0;
+
+  for (let i = 0; i < len; i++) {
+    firstDiagonalSum += arr[i][i];
+    secondDiagonalSum += arr[len - 1 - i][i];
+  }
+  return Math.abs(firstDiagonalSum - secondDiagonalSum);
+}
+
+// let flat = arr.flat();
+// let firstDiagonalSum =
+//   flat[0] + flat[Math.floor(flat.length / 2)] + flat[flat.length - 1];
+// let secondDiagonalSum =
+//   flat[2] + flat[Math.floor(flat.length / 2)] + flat[flat.length - 3];
+// return secondDiagonalSum - firstDiagonalSum;
+
+// diagonalDifference([1, 2, 3, 4, 5, 6, 9, 8, 9]);
+
+// diagonalDifference([
+//   [11, 2, 4],
+//   [4, 5, 6],
+//   [10, 8, -12],
+// ]);
+
+console.log(
+  diagonalDifference([
+    [11, 2, 4],
+    [4, 5, 6],
+    [10, 8, -12],
+  ])
+);
