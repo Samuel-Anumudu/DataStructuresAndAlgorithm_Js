@@ -320,3 +320,88 @@ console.log(
     [10, 8, -12],
   ])
 );
+
+function reverse(str) {
+  let newArr = "";
+
+  // Using the while loop iterator
+  let i = str.length - 1;
+  while (i >= 0) {
+    newArr += str[i];
+    i--;
+  }
+  // Using the For Loop Iterator
+  // for (let i = str.length - 1; i >= 0; i--) {
+  //   newArr += str[i];
+  // }
+  return `"${newArr}"`;
+}
+
+console.log(reverse("awesome"));
+
+// reverse("awesome");
+
+function reverseRecursive(str) {
+  if (str === null || str.length <= 1) return str;
+  return reverseRecursive(str.slice(1)) + str[0];
+}
+
+console.log(reverseRecursive("awesome"));
+
+//  IS PALINDROME
+//  able was I ere I saw elba => This is a palindrome
+// function isPalindrome(str) {
+//   let newStr = str.replace(/\s/g, "").toLowerCase();
+//   if (newStr.length <= 1) {
+//     return true;
+//   } else if (newStr[0] !== newStr[newStr.length - 1]) {
+//     return false;
+//   }
+//   return true;
+// }
+
+// Is Palindrome Recursive
+function isPalindrome(str) {
+  let newStr = str.replace(/\s/g, "").toLowerCase();
+  if (newStr.length <= 1) {
+    return true;
+  } else if (newStr[0] !== newStr[newStr.length - 1]) {
+    console.log(newStr[0]);
+    return false;
+  } else {
+    return isPalindrome(newStr.slice(1, newStr.length - 1));
+  }
+}
+
+console.log(isPalindrome("able was I ere I saw elbaba"));
+
+console.log("----------- some recursive ---------------");
+//  Some Recursive method 1:
+function someRecursive(arr, callbk = (val) => val % 2 !== 0) {
+  if (arr.length === 0) return false;
+  if (callbk(arr[0])) {
+    return true;
+  }
+  return someRecursive(arr.slice(1), callbk);
+}
+console.log(someRecursive([4, 6, 8]));
+
+console.log("------ Flatten ------");
+
+function flatten(arr) {
+  let result = [];
+  function helper(array) {
+    for (let i = 0; i < array.length; i++) {
+      let element = array[i];
+      if (Array.isArray(element)) {
+        helper(element);
+      } else {
+        result.push(element);
+      }
+    }
+  }
+  helper(arr);
+  return result;
+}
+
+console.log(flatten([1, 2, [3, 4], [5], [6], [7, 8, 9], [[[[[[[[[10]]]]]]]]]]));
