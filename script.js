@@ -405,3 +405,113 @@ function flatten(arr) {
 }
 
 console.log(flatten([1, 2, [3, 4], [5], [6], [7, 8, 9], [[[[[[[[[10]]]]]]]]]]));
+
+// function capitalizeFirst(arr) {
+//   let result = [];
+//   for (let words of arr) {
+//     let firstChar = words[0];
+//     if (firstChar) {
+//       let upperCaseChar = firstChar.toUpperCase();
+//       result.push(upperCaseChar + words.slice(1));
+//     }
+//   }
+//   return result;
+// }
+console.log("-------------- CAPITALIZE FIRST RECURSIVE ------------------");
+function capitalizeFirst(array) {
+  if (array.length === 1) {
+    return [array[0][0].toUpperCase() + array[0].substr(1)];
+  }
+  const res = capitalizeFirst(array.slice(0, -1));
+  const string =
+    array.slice(array.length - 1)[0][0].toUpperCase() +
+    array.slice(array.length - 1)[0].substr(1);
+  res.push(string);
+  return res;
+}
+
+// capitalizeFirst(['car','taco','banana']); // ['Car','Taco','Banana']
+
+console.log(capitalizeFirst(["sam", "car", "taco", "banana", "aquila"]));
+// capitalizeFirst(["car", "taco", "banana"]);
+
+function capitalizedWords(arr) {
+  return arr.toString().toUpperCase().split(",");
+}
+
+let words = ["i", "am", "learning", "recursion"];
+// ['I', 'AM', 'LEARNING', 'RECURSION']
+console.log(capitalizedWords(words));
+
+console.log("------------ Stringify Numbers Recursive ------------------- ");
+
+// function stringifyNumbers(obj) {
+//   var newObj = {};
+//   for (var key in obj) {
+//     if (typeof obj[key] === "number") {
+//       newObj[key] = obj[key].toString();
+//     } else if (typeof obj[key] === "object" && !Array.isArray(obj[key])) {
+//       newObj[key] = stringifyNumbers(obj[key]);
+//     } else {
+//       newObj[key] = obj[key];
+//     }
+//   }
+//   return newObj;
+// }
+
+// let obj = {
+//   num: 1,
+//   test: [],
+//   data: {
+//     val: 4,
+//     info: {
+//       isRight: true,
+//       random: 66,
+//     },
+//   },
+// };
+
+// console.log(stringifyNumbers(obj));
+
+/*
+{
+    num: "1",
+    test: [],
+    data: {
+        val: "4",
+        info: {
+            isRight: true,
+            random: "66"
+        }
+    }
+}
+*/
+
+const obj = {
+  stuff: "foo",
+  data: {
+    val: {
+      thing: {
+        info: "bar",
+        moreInfo: {
+          evenMoreInfo: {
+            weMadeIt: "baz",
+          },
+        },
+      },
+    },
+  },
+};
+
+function collectStrings(obj) {
+  let result = [];
+  for (let key in obj) {
+    if (typeof (obj[key] === "string")) {
+      result.push(obj[key]);
+    }
+  }
+  return result;
+}
+
+collectStrings(obj); // ["foo", "bar", "baz"])
+console.log(collectStrings(obj));
