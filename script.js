@@ -515,3 +515,73 @@ function collectStrings(obj) {
 
 collectStrings(obj); // ["foo", "bar", "baz"])
 console.log(collectStrings(obj));
+
+// SEARCHING ALGORITHM
+
+let sampleArr = [2, 4, 6, 8, 9];
+
+function linearSearch(arr, val) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === val) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+console.log(linearSearch(sampleArr, 99));
+
+console.log("---------------- BIN SEARCH -------------");
+
+function binarySearch(arr, val) {
+  let start = 0;
+  let end = arr.length - 1;
+  let mid = Math.floor((start + end) / 2);
+
+  while (arr[mid] !== val && start <= end) {
+    if (arr[mid] < val) {
+      start = mid + 1;
+    } else {
+      end = mid - 1;
+    }
+
+    mid = Math.floor((start + end) / 2);
+  }
+
+  return arr[mid] === val ? mid : -1;
+}
+
+console.log(binarySearch(sampleArr, 9));
+// binarySearch(sampleArr, 9);
+
+console.log("------- Recursive Binary Search ------ ");
+
+function recursiveBinarySearch(arr, val, start = 0, end = arr.length - 1) {
+  if (start > end) return -1;
+  let mid = Math.floor((start + end) / 2);
+  if (val === arr[mid]) {
+    return mid;
+  } else if (val < arr[mid]) {
+    return recursiveBinarySearch(arr, val, start, mid - 1);
+  } else {
+    return recursiveBinarySearch(arr, val, mid + 1, end);
+  }
+}
+
+// let sampleArr = [2, 4, 6, 8, 9];
+
+console.log(recursiveBinarySearch(sampleArr, 99));
+
+function stringSearch(str1, str2) {
+  let count = 0;
+  for (let i = 0; i < str1.length; i++) {
+    for (let j = 0; j < str2.length; j++) {
+      if (str2[j] !== str1[i + j]) break;
+      if (j === str2.length - 1) count++;
+    }
+  }
+  return count;
+}
+console.log(stringSearch("Samuel", "Sam"));
+
+// stringSearch("Samuel", "Sam");
