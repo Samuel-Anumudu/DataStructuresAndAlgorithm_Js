@@ -585,3 +585,62 @@ function stringSearch(str1, str2) {
 console.log(stringSearch("Samuel", "Sam"));
 
 // stringSearch("Samuel", "Sam");
+
+//
+// Write a recursive program to determine if a string s of numbers has more even digits than odd digits.
+// For example, given the input “0987650”, the number of even digits is 4, the number of odd digits is 3.
+// Hence, your program will return that for this input, there are more even digits than odd digits.
+// Note that zero is considered an
+
+console.log("-------------- CountEvenOdd --------------- ");
+
+// function countEvenOdd(n) {
+//   let even_count = 0;
+//   let odd_count = 0;
+//   for (let i of n) {
+//     if (i % 2 === 0) {
+//       even_count++;
+//     } else if (i % 2 !== 0) {
+//       odd_count++;
+//     }
+//   }
+//   if (even_count > odd_count) {
+//     return `There are more even digits (${even_count}) than odd digits (${odd_count}).`;
+//   } else {
+//     return `There are more odd digits (${odd_count}) than even digits (${even_count}).`;
+//   }
+// }
+
+// console.log(countEvenOdd("0987650"));
+// countEvenOdd("0987650");
+
+function countEvenOddRecursive(str) {
+  let odd = 0;
+  let even = 0;
+
+  function helper(helperInput) {
+    if (helperInput.length === 0) {
+      return;
+    }
+
+    if (helperInput[0] % 2 === 0) {
+      even++;
+    } else if (helperInput[0] % 2 !== 0) {
+      odd++;
+    }
+
+    helper(helperInput.slice(1));
+  }
+
+  helper(str);
+
+  if (even > odd) {
+    return `There are more even digits (${even}) than odd digits (${odd}).`;
+  } else {
+    return `There are more odd digits (${odd}) than even digits (${even}).`;
+  }
+}
+
+// countEvenOddRecursive("0987650");
+
+console.log(countEvenOddRecursive("0987650"));
