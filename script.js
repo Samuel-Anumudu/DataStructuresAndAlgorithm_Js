@@ -644,3 +644,13 @@ function countEvenOddRecursive(str) {
 // countEvenOddRecursive("0987650");
 
 console.log(countEvenOddRecursive("0987650"));
+
+// In Projects class, there are 8 boys and 12 girls. Samiratu is one of these girls.
+// The facilitator needs to choose 1 boy and 1 girl to present. What is the probability Samiratu is one
+// of those chosen to present? If the answer is a/b in simplest form, what is a+b?
+
+// boys = 8, girls = 12
+// total number of students in project class = 8 + 12 = 20
+// probability of choosing samiratu = 12 / 20 = 3 / 5 in its simplest form.
+// Therefore, a = 3, b = 5.
+// a + b = 8
