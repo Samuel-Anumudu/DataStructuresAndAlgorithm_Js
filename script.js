@@ -654,3 +654,79 @@ console.log(countEvenOddRecursive("0987650"));
 // probability of choosing samiratu = 12 / 20 = 3 / 5 in its simplest form.
 // Therefore, a = 3, b = 5.
 // a + b = 8
+
+console.log(
+  "------------------------- ARRAY METHODS -------------------------------------"
+);
+
+// JS HIGH ORDER FUNCTIONS AND ARRAY METHODS
+
+const companies = [
+  { name: "Company One", category: "Finance", start: 1981, end: 2004 },
+  { name: "Company Two", category: "Retail", start: 1992, end: 2008 },
+  { name: "Company Three", category: "Auto", start: 1999, end: 2007 },
+  { name: "Company Four", category: "Retail", start: 1989, end: 2010 },
+  { name: "Company Five", category: "Technology", start: 2009, end: 2014 },
+  { name: "Company Six", category: "Finance", start: 1987, end: 2010 },
+  { name: "Company Seven", category: "Auto", start: 1986, end: 1996 },
+  { name: "Company Eight", category: "Technology", start: 2011, end: 2016 },
+  { name: "Company Nine", category: "Retail", start: 1981, end: 1989 },
+];
+
+const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
+
+let canDrink = ages.filter((age) => age >= 21);
+
+const retailCompanies = companies.filter(
+  (company) => company.category === "Retail"
+);
+
+console.log(retailCompanies);
+
+console.log("---------------- Eighties ---------------");
+
+const lastedTenYears = companies.filter((yrs) => yrs.end - yrs.start >= 10);
+console.log(lastedTenYears);
+
+// const eighties = companies.filter(
+//   (yrs) => yrs.start >= 1980 && yrs.start < 1990
+// );
+// console.log(eighties);
+
+const squaredAges = ages.map((age) => Math.sqrt(age)).map((age) => age * 2);
+console.log(squaredAges);
+
+console.log("------------------- SORT -----------------------");
+
+const sortedCompanies = companies.sort((a, b) => (a.start > b.start ? 1 : -1));
+
+console.log(sortedCompanies);
+
+const sortAge = ages.sort((a, b) => a - b);
+console.log(sortAge);
+
+//  Reduce
+
+console.log("-------------------- Reduce ----------------------- ");
+
+const sumAge = ages.reduce((total, age) => total + age, 0);
+console.log(sumAge);
+
+const totalYears = companies.reduce(
+  (total, company) => total + (company.end - company.start),
+  0
+);
+
+console.log(totalYears);
+
+console.log("---------------------- COMBINED ------------------------");
+
+// Combined Method Calls
+
+const combined = ages
+  .map((age) => age * 2)
+  .filter((age) => age >= 40)
+  .sort((a, b) => a - b)
+  .reduce((a, b) => a + b, 0);
+
+console.log(combined);
