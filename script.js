@@ -730,3 +730,63 @@ const combined = ages
   .reduce((a, b) => a + b, 0);
 
 console.log(combined);
+
+// SORTING ALGORITHM
+
+console.log("--------------------SORT ALGORITHM -------------- ");
+
+// How Sorting Method works in JavaScript
+
+function numberCompare(num1, num2) {
+  return num1 - num2;
+}
+
+const sortedArr = [5, 7, 4, 3, 8, 12].sort(numberCompare);
+
+console.log(sortedArr);
+
+function compareByLen(str1, str2) {
+  return str1.length - str2.length;
+}
+
+const sortedStr = ["I", "Love", "To", "Every Morning", "Sleep"].sort(
+  compareByLen
+);
+
+console.log(sortedStr);
+
+// Bubble Sort
+// Before we sort, we must swap
+
+// function bubbleSort(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr.length; j++) {
+//       console.log(arr);
+//       if (arr[j] > arr[j + 1]) {
+//         let temp = arr[j];
+//         arr[j] = arr[j + 1];
+//         arr[j + 1] = temp;
+//       }
+//     }
+//   }
+//   return arr;
+// }
+
+// console.log(bubbleSort([7, 6, 5, 4, 3, 2, 1]));
+
+function bubbleSort(arr) {
+  for (let i = arr.length; i > 0; i--) {
+    for (let j = 0; j < i - 1; j++) {
+      // console.log(arr);
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  console.log(arr);
+  return arr;
+}
+
+console.log(bubbleSort([23, 56, 18, 17]));
