@@ -774,6 +774,7 @@ console.log(sortedStr);
 
 // console.log(bubbleSort([7, 6, 5, 4, 3, 2, 1]));
 
+console.log("----------------- BUBBLE SORT ---------------- ");
 function bubbleSort(arr) {
   for (let i = arr.length; i > 0; i--) {
     for (let j = 0; j < i - 1; j++) {
@@ -790,3 +791,46 @@ function bubbleSort(arr) {
 }
 
 console.log(bubbleSort([23, 56, 18, 17]));
+
+console.log("---------- SELECTION SORT BEGINS ------------------------");
+
+// SELECTION SORT
+
+function selectionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let min = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[min]) {
+        min = j;
+      }
+    }
+    if (i != min) {
+      let temp = arr[i];
+      arr[i] = arr[min];
+      arr[min] = temp;
+    }
+  }
+
+  return arr;
+}
+
+console.log(selectionSort([34, 22, 10, 19, 17]));
+
+console.log("--------------- INSERTION SORT -------------");
+
+function insertionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let lowest = 1;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (lowest < arr[0]) {
+        lowest = arr[0];
+        console.log(i, j);
+        console.log(lowest);
+      }
+    }
+  }
+
+  return arr;
+}
+
+// console.log(insertionSort([5, 4, 3, 2, 1]));
