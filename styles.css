@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(to top left, #28b487, #7dd56f) no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.one {
+  width: 20px;
+  background-color: #fff;
+  padding: 40px;
+  margin-right: 10px;
+}
+
+.two .items,
+.three .items,
+.four .items,
+.five .items,
+.six .items {
+  width: 20px;
+  background-color: #fff;
+  padding: 40px;
+  margin-right: 10px;
+  margin-top: 10px;
+}

@@ -834,3 +834,33 @@ function insertionSort(arr) {
 }
 
 // console.log(insertionSort([5, 4, 3, 2, 1]));
+
+console.log("--------- AVERAGE OF ROLLED NUMBERS ---------------");
+
+// function averageOfRolledDice() {
+//   let numOfThreeDigits = Number(
+//     prompt("How many 3-digit numbers you want to average?")
+//   );
+
+//   let sum = 0;
+//   let numPosition = 0;
+//   for (let i = 0; i < numOfThreeDigits; i++) {
+//     numPosition += 1;
+//     let diceRolled = Number(prompt(`Enter the number '${numPosition}'`));
+//     // diceRolled.toString().split("").reverse().join("");
+//     sum = sum + diceRolled;
+//   }
+
+//   return Math.round((sum / numOfThreeDigits) * 10) / 10;
+// }
+
+function fizzBuzz() {
+  let num = 100;
+
+  for (var i = 1; i <= num; i++) {
+    if (i % 3 === 0) console.log("Fizz", i);
+    if (i % 5 === 0) console.log("Buzz", i);
+    if (i % 3 === 0 && i % 5 === 0) console.log("FizzBuzz", i);
+  }
+}
+fizzBuzz();
