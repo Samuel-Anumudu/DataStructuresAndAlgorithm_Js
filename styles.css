@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  background: linear-gradient(to top left, #28b487, #7dd56f) no-repeat;
+  background: #040404;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -17,25 +17,41 @@ body {
 
 .wrapper {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
 }
 
-.one {
-  width: 20px;
-  background-color: #fff;
-  padding: 40px;
-  margin-right: 10px;
+.one__1 {
+  width: 30px;
+  padding: 35px;
+  background-color: grey;
+  position: relative;
+  top: 80px;
+  margin-right: 5px;
 }
 
-.two .items,
-.three .items,
-.four .items,
-.five .items,
-.six .items {
-  width: 20px;
-  background-color: #fff;
-  padding: 40px;
-  margin-right: 10px;
-  margin-top: 10px;
+.two__2 {
+  width: 30px;
+  padding: 35px;
+  background-color: white;
+  margin-top: 5px;
+}
+
+.three__3 {
+  width: 30px;
+  padding: 35px;
+  background-color: orange;
+  margin-top: 5px;
+  left: 5px;
+  position: relative;
+  bottom: 75px;
+}
+
+.four__4 {
+  width: 30px;
+  padding: 35px;
+  background-color: lightblue;
+  position: relative;
+  left: 10px;
+  bottom: 150px;
+  margin-top: 5px;
 }
